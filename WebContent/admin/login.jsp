@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%
+if(session.getAttribute("AdminID") != null){
+	response.sendRedirect("index.jsp");
+	return;
+}
+%>
 <%@ page import="com.eventmanagement.*" %>
 <% 
 String Email = (String) request.getAttribute("Email");

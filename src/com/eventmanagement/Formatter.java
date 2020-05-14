@@ -1,10 +1,11 @@
 package com.eventmanagement;
 
-import java.util.Date;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Formatter {
 
@@ -14,18 +15,16 @@ public class Formatter {
 		return dtf.format(now);
 	}
 
-	public static String FormatToDateTime(String Input) {
+	public static String FormatToDateTime(String Input) throws ParseException {
 
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-YYYY HH:mm:ss");
+		Date date1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(Input);
+		DateFormat dateFormat = new SimpleDateFormat("dd MMMM, YYYY");
+		String strDate = dateFormat.format(date1);
 
-		Date date = null;
+		DateFormat timeFormat = new SimpleDateFormat("hh:mm a");
+		String strTime = timeFormat.format(date1);
 
-		try {
-			date = (Date) format.parse(Input);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date.toString();
+		return strDate + "<br>" + strTime;
 	}
 
 	public static String FormatToDate(String Input) {

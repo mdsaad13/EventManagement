@@ -7,6 +7,8 @@ public class Environment {
 
     public static String _SoftwareName = "Event Management";
 
+    public static String _SoftwareShortName = "EMS";
+
     public static String _OwnerName = "Saad";
 
     public static String _OwnerMobile = "+91 8884291607";

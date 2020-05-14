@@ -11,25 +11,6 @@ import com.eventmanagement.modals.*;
 
 public class AccountUtil extends config {
 
-    // public boolean Default() throws SQLException {
-    // boolean result = false;
-
-    // PreparedStatement pstmt = null;
-    // ResultSet rs = null;
-
-    // Connect();
-    // try {
-    // // some code here
-    // } catch (Exception e) {
-    // } finally {
-    // DisConnect();
-    // rs.close();
-    // pstmt.close();
-    // }
-    // DisConnect();
-    // return result;
-    // }
-
     public boolean InsertUser(Users users) throws SQLException {
         boolean result = false;
         Connect();
@@ -100,7 +81,6 @@ public class AccountUtil extends config {
             rs.close();
             pstmt.close();
         }
-        DisConnect();
         return users;
     }
 
@@ -125,7 +105,6 @@ public class AccountUtil extends config {
             rs.close();
             pstmt.close();
         }
-        DisConnect();
         return list;
     }
 
@@ -174,7 +153,6 @@ public class AccountUtil extends config {
             rs.close();
             pstmt.close();
         }
-        DisConnect();
         return users;
     }
 
