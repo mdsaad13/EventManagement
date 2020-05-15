@@ -4,14 +4,17 @@ if(session.getAttribute("AdminID") == null){
 	return;
 }
 %>
-<jsp:include page="header.jsp" />
+<jsp:include page="header.jsp">
+  <jsp:param name="Title" value="Dashboard" />
+  <jsp:param name="IndexActive" value="active" />
+</jsp:include>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
       Dashboard
-      <small>Control panel</small>
+      <small>Admin panel</small>
     </h1>
     <ol class="breadcrumb">
       <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
