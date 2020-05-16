@@ -28,6 +28,22 @@
 <script src="bower_components/DataTables/datatables.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
+
+<!-- Validator -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script>
+
+    $.validate({
+        modules: 'location, date, security, file',
+        onModulesLoaded: function () {
+            $('#country').suggestCountry();
+        }
+    });
+
+    // Restrict presentation length
+    $('#presentation').restrictLength($('#pres-max-length'));
+</script>
+
 </body>
 
 </html>

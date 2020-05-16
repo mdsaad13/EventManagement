@@ -90,17 +90,21 @@ Message = request.getParameter("message");
                             <div class="col-md-12 form-group">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" name="name" id="name"
-                                    value="<%= user.getName() %>" />
+                                    value="<%= user.getName() %>" data-validation="required"
+                                    data-validation-error-msg="Enter valid name" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" name="email" id="email"
-                                    value="<%= user.getEmail() %>" />
+                                    value="<%= user.getEmail() %>" data-validation="email"
+                                    data-validation-error-msg="Enter valid email" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="mobile">Mobile</label>
                                 <input type="text" class="form-control" name="mobile" id="mobile"
-                                    value="<%= user.getMobile() %>" />
+                                    value="<%= user.getMobile() %>" data-validation="custom"
+                                    data-validation-regexp="^([6-9]{1})(\d{9})$"
+                                    data-validation-error-msg="Kindly Enter valid phone number" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="submit" class="btn btn-primary d-block w-100" value="Update">
@@ -115,16 +119,18 @@ Message = request.getParameter("message");
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="password">Current Password</label>
-                                <input type="password" class="form-control" name="password" id="password" />
+                                <input type="password" class="form-control" name="password" id="password"
+                                    data-validation="strength" data-validation-strength="2" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="new_password">New Password</label>
-                                <input type="password" class="form-control" name="new_password" id="new_password" />
+                                <input type="password" class="form-control" name="new_password_confirmation"
+                                    id="inputPassword3" data-validation="strength" data-validation-strength="2" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="re_new_password">Re-Enter New Password</label>
-                                <input type="password" class="form-control" name="re_new_password"
-                                    id="re_new_password" />
+                                <input type="password" class="form-control" name="new_password" id="inputPassword3"
+                                    data-validation="confirmation" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <input type="submit" class="btn btn-primary d-block w-100" value="Change Password">

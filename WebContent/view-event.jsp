@@ -40,8 +40,8 @@ Events event = adminUtil.GetEventByID(EventID);
 					<input type="hidden" name="eventID" value="<%=event.getID()%>">
 					<div class="form-group">
 						<label for="members">Book For</label> 
-						<input type="text" class="form-control"
-							id="members" name="members" placeholder="Enter number of members to book">
+						<input type="number" class="form-control"
+							id="members" name="members" placeholder="Enter number of members to book" data-validation="number" data-validation-allowing="range[1;50]" data-validation-error-msg="Only 1 to 50 members can be booked in a single booking">
 					</div>
 					<div class="mt-5 mb-2">
 						<button type="submit" class="btn btn-primary btn-block">Book Now</button>

@@ -5,8 +5,8 @@ if(session.getAttribute("UserID") != null){
 }
 %>
 <jsp:include page="header.jsp">
-  <jsp:param name="Title" value="Register" />
-  <jsp:param name="RegisterActive" value="active" />
+    <jsp:param name="Title" value="Register" />
+    <jsp:param name="RegisterActive" value="active" />
 </jsp:include>
 <main id="main">
     <div class="hero-section inner-page reduceHeight">
@@ -49,23 +49,29 @@ if(session.getAttribute("UserID") != null){
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" id="name" />
+                                <input type="text" class="form-control" name="name" id="name" data-validation="required"
+                                    data-validation-error-msg="Enter valid name" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" />
+                                <input type="email" class="form-control" name="email" id="email" data-validation="email"
+                                    data-validation-error-msg="Enter valid email" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="mobile">Mobile</label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" />
+                                <input type="text" class="form-control" name="mobile" id="mobile"
+                                    data-validation="custom" data-validation-regexp="^([6-9]{1})(\d{9})$"
+                                    data-validation-error-msg="Kindly Enter valid phone number" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" />
+                                <input type="password" class="form-control" name="password_confirmation"
+                                    id="inputPassword3" data-validation="strength" data-validation-strength="2" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="re_password">Re-Enter Password</label>
-                                <input type="password" class="form-control" name="re_password" id="re_password" />
+                                <input type="password" class="form-control" id="inputPassword3"
+                                    placeholder="Re-Enter new password" name="password" data-validation="confirmation">
                             </div>
                             <div class="col-md-12 mt-3 mb-3">
                                 <p>

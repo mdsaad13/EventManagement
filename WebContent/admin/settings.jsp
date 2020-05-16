@@ -35,8 +35,7 @@ Message = request.getParameter("message");
 			if (Message.equals("UpdateSuccess")) {
 		%>
 		<div class="alert alert-success alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert"
-				aria-hidden="true">X</button>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 			<h4>
 				<i class="icon fa fa-check"></i> Alert!
 			</h4>
@@ -46,8 +45,7 @@ Message = request.getParameter("message");
 			} else if (Message.equals("UpdateFailed")) {
 		%>
 		<div class="alert alert-danger alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert"
-				aria-hidden="true">X</button>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 			<h4>
 				<i class="icon fa fa-check"></i> Alert!
 			</h4>
@@ -57,8 +55,7 @@ Message = request.getParameter("message");
 			} else if (Message.equals("PasswordChangeSuccess")) {
 		%>
 		<div class="alert alert-success alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert"
-				aria-hidden="true">X</button>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 			<h4>
 				<i class="icon fa fa-check"></i> Alert!
 			</h4>
@@ -68,8 +65,7 @@ Message = request.getParameter("message");
 			} else if (Message.equals("PasswordChangeFailed")) {
 		%>
 		<div class="alert alert-danger alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert"
-				aria-hidden="true">X</button>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 			<h4>
 				<i class="icon fa fa-check"></i> Alert!
 			</h4>
@@ -79,8 +75,7 @@ Message = request.getParameter("message");
 			} else if (Message.equals("IncorrectPassword")) {
 		%>
 		<div class="alert alert-danger alert-dismissible">
-			<button type="button" class="close" data-dismiss="alert"
-				aria-hidden="true">X</button>
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
 			<h4>
 				<i class="icon fa fa-check"></i> Alert!
 			</h4>
@@ -102,14 +97,14 @@ Message = request.getParameter("message");
 					<form role="form" method="post" action="Settings">
 						<div class="box-body">
 							<div class="form-group">
-								<label for="name">Name</label> <input type="text"
-									class="form-control" id="name" name="name"
-									placeholder="Enter name" value="<%= user.getName() %>">
+								<label for="name">Name</label> <input type="text" class="form-control" id="name"
+									name="name" placeholder="Enter name" value="<%= user.getName() %>"
+									data-validation="required">
 							</div>
 							<div class="form-group">
-								<label for="email">Email</label> <input type="email"
-									class="form-control" id="email" name="email"
-									placeholder="Enter email" value="<%= user.getEmail() %>">
+								<label for="email">Email</label> <input type="email" class="form-control" id="email"
+									name="email" placeholder="Enter email" value="<%= user.getEmail() %>"
+									data-validation="email">
 							</div>
 						</div>
 						<div class="box-footer">
@@ -130,19 +125,19 @@ Message = request.getParameter("message");
 					<form role="form" method="post" action="ChangePassword">
 						<div class="box-body">
 							<div class="form-group">
-								<label for="password">Current Password</label> <input
-									type="password" class="form-control" name="password"
-									id="password" />
+								<label for="password">Current Password</label> <input type="password"
+									class="form-control" name="password" id="password" data-validation="strength"
+									data-validation-strength="2" />
 							</div>
 							<div class="form-group">
-								<label for="new_password">New Password</label> <input
-									type="password" class="form-control" name="new_password"
-									id="new_password" />
+								<label for="new_password">New Password</label>
+								<input type="password" class="form-control" name="new_password_confirmation"
+									id="inputPassword3" data-validation="strength" data-validation-strength="2" />
 							</div>
 							<div class="form-group">
-								<label for="re_new_password">Re-Enter New Password</label> <input
-									type="password" class="form-control" name="re_new_password"
-									id="re_new_password" />
+								<label for="re_new_password">Re-Enter New Password</label>
+								<input type="password" class="form-control" name="new_password" id="inputPassword3"
+									data-validation="confirmation" />
 							</div>
 						</div>
 						<div class="box-footer">

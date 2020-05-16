@@ -45,15 +45,18 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
             <div class="box-body">
               <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title">
+                <input type="text" class="form-control" name="title" id="title" placeholder="Enter title"
+                  data-validation="required">
               </div>
               <div class="form-group">
                 <label for="title">Description</label>
-                <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="10"
+                  data-validation="required"></textarea>
               </div>
               <div class="form-group">
                 <label>Category</label>
-                <select class="form-control" name="catid">
+                <select class="form-control" name="catid" data-validation="required"
+                  data-validation-error-msg="Enter valid category name">
                   <%
                   for(Categories singleCat : AllCats){ %>
                   <option value="<%=singleCat.getID()%>"><%=singleCat.getName()%></option>
@@ -63,22 +66,26 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
               </div>
               <div class="form-group">
                 <label>Visibility</label>
-                <select class="form-control" name="event_visibility">
+                <select class="form-control" name="event_visibility" data-validation="required">
                   <option value="2" selected>Hide on home page</option>
                   <option value="1">Show on home page</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="venueDate">Venue Date</label>
-                <input type="text" class="form-control" name="venueDate" id="venueDate" placeholder="Enter venue date">
+                <input type="text" class="form-control" name="venueDate" id="venueDate" placeholder="Enter venue date"
+                  data-validation="required">
               </div>
               <div class="form-group">
                 <label for="address">Address</label>
-                <textarea class="form-control" name="address" id="address" cols="10" rows="5"></textarea>
+                <textarea class="form-control" name="address" id="address" cols="10" rows="5"
+                  data-validation="required"></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile" name="file">
+                <input type="file" id="exampleInputFile" name="file" data-validation="required mime size"
+                  data-validation-allowing="jpg ,jpeg, png, PNG, JPG" data-validation-max-size="1mb"
+                  data-validation-error-msg-required="No File selected">
               </div>
             </div>
             <!-- /.box-body -->
@@ -104,7 +111,7 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
       singleDatePicker: true,
       timePicker: true,
       minDate: new Date,
-      drops:'up',
+      drops: 'up',
       locale: {
         format: 'YYYY/MM/DD HH:mm'
       }

@@ -31,7 +31,8 @@ Message = request.getParameter("message");
         <form action="AddCategory" method="post">
           <div class="form-group">
             <label for="name">Category Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name" required>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name" required
+              data-validation="required" data-validation-error-msg="Enter valid category name">
           </div>
           <div class="form-group" style="margin:2rem">
             <button class="btn btn-primary btn-block" type="submit">Add</button>
@@ -56,7 +57,8 @@ Message = request.getParameter("message");
           <input type="hidden" name="id" id="id">
           <div class="form-group">
             <label for="name">Category Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name" required>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter category name" required
+              data-validation="required" data-validation-error-msg="Enter valid category name">
           </div>
           <div class="form-group" style="margin:2rem">
             <button class="btn btn-primary btn-block" type="submit">Update</button>

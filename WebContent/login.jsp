@@ -5,8 +5,8 @@ if(session.getAttribute("UserID") != null){
 }
 %>
 <jsp:include page="header.jsp">
-  <jsp:param name="Title" value="Login" />
-  <jsp:param name="LoginActive" value="active" />
+    <jsp:param name="Title" value="Login" />
+    <jsp:param name="LoginActive" value="active" />
 </jsp:include>
 <% 
 String Email = (String) request.getAttribute("Email");
@@ -70,12 +70,14 @@ String Email = (String) request.getAttribute("Email");
                         <div class="row">
                             <div class="col-md-12 form-group">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email"
+                                <input type="email" class="form-control" name="email" id="email" data-validation="email"
+                                    data-validation-error-msg="Enter valid email"
                                     value="<%= (Email != null)?Email:"" %>" />
                             </div>
                             <div class="col-md-12 form-group">
                                 <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" />
+                                <input type="password" class="form-control" name="password" id="password"
+                                    data-validation="required" data-validation-error-msg="Enter valid password" />
                             </div>
                             <div class="col-md-12 mt-3 mb-3">
                                 <p>

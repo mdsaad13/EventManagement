@@ -1,3 +1,4 @@
+<%@page import="com.eventmanagement.Environment"%>
 <%@page import="com.eventmanagement.Formatter"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.eventmanagement.modals.Events"%>
@@ -12,8 +13,8 @@ if (list.size() > 0) {
 }
 %>
 <jsp:include page="header.jsp">
-<jsp:param name="Title" value="Home" />
-  <jsp:param name="IndexActive" value="active" />
+    <jsp:param name="Title" value="Home" />
+    <jsp:param name="IndexActive" value="active" />
 </jsp:include>
 <main id="main">
     <div class="hero-section">
@@ -37,11 +38,15 @@ if (list.size() > 0) {
                 <div class="col-12 hero-text-image">
                     <div class="row">
                         <div class="col-lg-7 text-center text-lg-left">
-                            <h1 data-aos="fade-right">Promote Your App with SoftLand</h1>
-                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem
-                                ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <h1 data-aos="fade-right"><%= Environment._SoftwareName %></h1>
+                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">
+                                "Event management is the application of project management to the creation and
+                                development of large scale events such as festivals, conferences, ceremonies, formal
+                                parties, concerts, or conventions".
+                            </p>
                             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
-                                <a href="#" class="btn btn-outline-white">Get started</a>
+                                We developed a solution for all of you problems and
+                                name it as <%= Environment._SoftwareName %>
                             </p>
                         </div>
                         <div class="col-lg-5 iphone-wrap">
@@ -61,7 +66,7 @@ if (list.size() > 0) {
 
             <div class="row justify-content-center text-center mb-5">
                 <div class="col-md-5" data-aos="fade-up">
-                    <h2 class="section-heading">Save your time to using SoftLand</h2>
+                    <h2 class="section-heading">GENERAL CONSTARINTS</h2>
                 </div>
             </div>
 
@@ -71,9 +76,11 @@ if (list.size() > 0) {
                         <div class="wrap-icon icon-1">
                             <span class="icon la la-users"></span>
                         </div>
-                        <h3 class="mb-3">Explore Your Team</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Rem, optio.</p>
+                        <h3 class="mb-3">Capacity Constraint</h3>
+                        <p>
+                            A resource which cannot provide timely capacity the systems
+                            demands for it, also referred to as a CCR (capacity constrained resource).
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
@@ -81,9 +88,11 @@ if (list.size() > 0) {
                         <div class="wrap-icon icon-1">
                             <span class="icon la la-toggle-off"></span>
                         </div>
-                        <h3 class="mb-3">Digital Whiteboard</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Rem, optio.</p>
+                        <h3 class="mb-3">Market Constraint</h3>
+                        <p>
+                            The amount of event management supply chain revenue is not
+                            sufficient to sustain the required growth of the system.
+                        </p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
@@ -91,9 +100,13 @@ if (list.size() > 0) {
                         <div class="wrap-icon icon-1">
                             <span class="icon la la-umbrella"></span>
                         </div>
-                        <h3 class="mb-3">Design To Development</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Rem, optio.</p>
+                        <h3 class="mb-3">Time Constraint</h3>
+                        <p>
+                            The response time of the event management supply chain, to the
+                            requirement of the event management markets is too long and to the extent that it
+                            jeopardizes the event management supply chain's ability to meet its current commitment
+                            to its customers as well as the ability of winning new business.
+                        </p>
                     </div>
                 </div>
             </div>

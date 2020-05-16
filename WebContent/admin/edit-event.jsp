@@ -54,16 +54,16 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
               <div class="form-group">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" name="title" id="title" placeholder="Enter title"
-                  value="<%= event.getTitle() %>">
+                  value="<%= event.getTitle() %>" data-validation="required">
               </div>
               <div class="form-group">
                 <label for="title">Description</label>
-                <textarea class="form-control" name="description" id="description" cols="30"
-                  rows="10"><%= event.getDescription() %></textarea>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="10"
+                  data-validation="required"><%= event.getDescription() %></textarea>
               </div>
               <div class="form-group">
                 <label>Category</label>
-                <select class="form-control" name="catid">
+                <select class="form-control" name="catid" data-validation="required">
                   <%
                   for(Categories singleCat : AllCats){ %>
                   <option value="<%=singleCat.getID()%>" <%= (event.getCatID() == singleCat.getID())?"selected":"" %>>
@@ -75,7 +75,7 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
               </div>
               <div class="form-group">
                 <label>Visibility</label>
-                <select class="form-control" name="event_visibility">
+                <select class="form-control" name="event_visibility" data-validation="required">
                   <option value="2" <%= (event.getVisibility() == 2)?"selected":"" %>>Hide on home page</option>
                   <option value="1" <%= (event.getVisibility() == 1)?"selected":"" %>>Show on home page</option>
                 </select>
@@ -83,16 +83,17 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
               <div class="form-group">
                 <label for="venueDate">Venue Date</label>
                 <input type="text" class="form-control" name="venueDate" id="venueDate" placeholder="Enter venue date"
-                  value="<%= event.getVenueDate() %>">
+                  value="<%= event.getVenueDate() %>" data-validation="required">
               </div>
               <div class="form-group">
                 <label for="address">Address</label>
-                <textarea class="form-control" name="address" id="address" cols="10"
-                  rows="5"><%= event.getAddress() %></textarea>
+                <textarea class="form-control" name="address" id="address" cols="10" rows="5"
+                  data-validation="required"><%= event.getAddress() %></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleInputFile">File input</label>
-                <input type="file" id="exampleInputFile" name="file">
+                <input type="file" id="exampleInputFile" name="file" data-validation="mime size"
+                  data-validation-allowing="jpg ,jpeg, png, PNG, JPG" data-validation-max-size="1mb">
               </div>
             </div>
             <!-- /.box-body -->

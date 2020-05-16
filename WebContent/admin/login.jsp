@@ -54,11 +54,11 @@ String Email = (String) request.getAttribute("Email");
             <form action="AdminLogin" method="post">
                 <div class="form-group has-feedback">
                     <input type="email" class="form-control" placeholder="Email" name="email"
-                        value="<%= (Email != null)?Email:"" %>">
+                        value="<%= (Email != null)?Email:"" %>" required>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" class="form-control" placeholder="Password" name="password">
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div style="margin-top: 4rem">

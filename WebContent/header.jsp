@@ -31,6 +31,9 @@ if(session.getAttribute("UserID") != null){
 
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet"
+        type="text/css" />
 </head>
 
 <body>
@@ -62,17 +65,21 @@ if(session.getAttribute("UserID") != null){
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li class="${param.IndexActive}"><a href="index.jsp" class="nav-link">Home</a></li>
                                 <li class="${param.EventsActive}"><a href="events.jsp" class="nav-link">Events</a></li>
-                                <li class="${param.ContactActive}"><a href="contact.jsp" class="nav-link">Contact</a></li>
+                                <li class="${param.ContactActive}"><a href="contact.jsp" class="nav-link">Contact</a>
+                                </li>
                                 <%
 			                        if(session.getAttribute("UserID") == null){ %>
                                 <li class="${param.LoginActive}"><a href="login.jsp" class="nav-link">Login</a></li>
-                                <li class="${param.RegisterActive}"><a href="register.jsp" class="nav-link">Register</a></li>
+                                <li class="${param.RegisterActive}"><a href="register.jsp" class="nav-link">Register</a>
+                                </li>
                                 <% } else { %>
                                 <li class="has-children ${param.BookingsActive} ${param.SettingsActive}">
                                     <a href="blog.html" class="nav-link">Welcome <%= Name %></a>
                                     <ul class="dropdown">
-                                        <li class=""><a href="mybookings.jsp" class="nav-link ${param.BookingsActive}">My Bookings</a></li>
-                                        <li class=""><a href="settings.jsp" class="nav-link ${param.SettingsActive}">Settings</a></li>
+                                        <li class=""><a href="mybookings.jsp"
+                                                class="nav-link ${param.BookingsActive}">My Bookings</a></li>
+                                        <li class=""><a href="settings.jsp"
+                                                class="nav-link ${param.SettingsActive}">Settings</a></li>
                                         <li class=""><a href="logout.jsp" class="nav-link">Logout</a></li>
                                     </ul>
                                 </li>
