@@ -1,4 +1,20 @@
-<jsp:include page="header.jsp" />
+<%@page import="com.eventmanagement.Formatter"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.eventmanagement.modals.Events"%>
+<%@page import="com.eventmanagement.dbutil.AdminUtil"%>
+<%
+	AdminUtil adminUtil = new AdminUtil();
+ArrayList<Events> list = adminUtil.OnlyHomeEvents();
+
+Boolean DisplayEvents = false;
+if (list.size() > 0) {
+	DisplayEvents = true;
+}
+%>
+<jsp:include page="header.jsp">
+<jsp:param name="Title" value="Home" />
+  <jsp:param name="IndexActive" value="active" />
+</jsp:include>
 <main id="main">
     <div class="hero-section">
         <div class="wave">
@@ -22,17 +38,16 @@
                     <div class="row">
                         <div class="col-lg-7 text-center text-lg-left">
                             <h1 data-aos="fade-right">Promote Your App with SoftLand</h1>
-                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem ipsum dolor sit amet,
-                                consectetur
-                                adipisicing elit.</p>
-                            <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#"
-                                    class="btn btn-outline-white">Get started</a></p>
+                            <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem
+                                ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500">
+                                <a href="#" class="btn btn-outline-white">Get started</a>
+                            </p>
                         </div>
                         <div class="col-lg-5 iphone-wrap">
                             <img src="assets/img/hero.jpg" alt="Image" class="phone-1" data-aos="fade-right"
-                                style="width: 100%;">
-                            <img src="assets/img/hero1.webp" alt="Image" class="phone-2" data-aos="fade-right"
-                                data-aos-delay="200" style="width: 100%;">
+                                style="width: 100%;"> <img src="assets/img/hero1.webp" alt="Image" class="phone-2"
+                                data-aos="fade-right" data-aos-delay="200" style="width: 100%;">
                         </div>
                     </div>
                 </div>
@@ -57,7 +72,8 @@
                             <span class="icon la la-users"></span>
                         </div>
                         <h3 class="mb-3">Explore Your Team</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Rem, optio.</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
@@ -66,7 +82,8 @@
                             <span class="icon la la-toggle-off"></span>
                         </div>
                         <h3 class="mb-3">Digital Whiteboard</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Rem, optio.</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
@@ -75,14 +92,19 @@
                             <span class="icon la la-umbrella"></span>
                         </div>
                         <h3 class="mb-3">Design To Development</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Rem, optio.</p>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div> <!-- .site-section -->
+    </div>
+    <!-- .site-section -->
 
+    <%
+		if (DisplayEvents) {
+	%>
     <div class="site-section">
         <div class="container">
             <div class="row justify-content-center text-center mb-5">
@@ -90,10 +112,34 @@
                     <h2 class="section-heading">Events</h2>
                 </div>
             </div>
-
+            <div class="row">
+                <% for (Events item : list) { %>
+                <div class="col-md-4">
+                    <div class="post-entry">
+                        <a href="blog-single.html" class="d-block mb-4"> <img
+                                src="assets/EventImages/<%= item.getImgUrl() %>" alt="Image" class="img-fluid">
+                        </a>
+                        <div class="post-text">
+                            <span class="post-meta">Venue Date:
+                                <%= Formatter.FormatToDate(item.getVenueDate()) %></span>
+                            <h3>
+                                <a href="#"><%= item.getTitle()%></a>
+                            </h3>
+                            <p><%= item.getTitle() %></p>
+                            <p>
+                                <a href="view-event.jsp?id=<%= item.getID() %>" class="readmore">More Details</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+            <a href="events.jsp" class="btn btn-default btn-block">View All</a>
         </div>
     </div>
-
+    <%
+		}
+	%>
 
     <div class="site-section cta-section">
         <div class="container">

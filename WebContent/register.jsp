@@ -1,4 +1,13 @@
-<jsp:include page="header.jsp" />
+<%
+if(session.getAttribute("UserID") != null){
+	response.sendRedirect("mybookings.jsp");
+	return;
+}
+%>
+<jsp:include page="header.jsp">
+  <jsp:param name="Title" value="Register" />
+  <jsp:param name="RegisterActive" value="active" />
+</jsp:include>
 <main id="main">
     <div class="hero-section inner-page reduceHeight">
         <div class="wave">

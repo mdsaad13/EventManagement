@@ -9,12 +9,22 @@ import java.util.Date;
 
 public class Formatter {
 
+	/**
+	 * 
+	 * @return Current DateTime in database savable format
+	 */
 	public static String CurrentDateTime() {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 		LocalDateTime now = LocalDateTime.now();
 		return dtf.format(now);
 	}
 
+	/**
+	 * 
+	 * @param DateTime_Value
+	 * @return Formated date and time output
+	 * @throws ParseException
+	 */
 	public static String FormatToDateTime(String Input) throws ParseException {
 
 		Date date1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(Input);
@@ -27,17 +37,18 @@ public class Formatter {
 		return strDate + "<br>" + strTime;
 	}
 
-	public static String FormatToDate(String Input) {
+	/**
+	 * 
+	 * @param DateTime_Value
+	 * @return Formated date output
+	 * @throws ParseException
+	 */
+	public static String FormatToDate(String Input) throws ParseException {
 
-		SimpleDateFormat format = new SimpleDateFormat("dd-MM-YYYY");
+		Date date1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").parse(Input);
+		DateFormat dateFormat = new SimpleDateFormat("dd MMMM, YYYY");
+		String strDate = dateFormat.format(date1);
 
-		Date date = null;
-
-		try {
-			date = (Date) format.parse(Input);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return date.toString();
+		return strDate;
 	}
 }

@@ -76,8 +76,8 @@ String Title = "Abc";
                                             <%= Formatter.FormatToDateTime(item.getDateTime()) %>
                                         </td>
                                         <td>
-                                            <a href="view-user.jsp?id=<%= item.getID() %>"
-                                                class="btn btn-sm btn-info">View</a>
+                                            <a href="user-bookings.jsp?id=<%= item.getID() %>"
+                                                class="btn btn-sm btn-info">View Bookings</a>
                                         </td>
                                     </tr>
                                     <%  

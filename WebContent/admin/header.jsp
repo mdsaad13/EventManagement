@@ -34,6 +34,12 @@ try{
 	ContactCount = 0;
 }
 
+try{
+	BookingCount = generalUtil.CountByArgs("bookings", "seen = 0");
+} catch (Exception e){
+	ContactCount = 0;
+}
+
 %>
 <!DOCTYPE html>
 <html>
@@ -86,12 +92,12 @@ try{
                     <ul class="nav navbar-nav">
 
                         <li class="dropdown user user-menu"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image"> <span
+                                <img src="dist/img/user-white.svg" class="user-image" alt="User Image"> <span
                                     class="hidden-xs"><%=UserName%></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
-                                <li class="user-header"><img src="dist/img/user2-160x160.jpg" class="img-circle"
+                                <li class="user-header"><img src="dist/img/user-white.svg" class="img-circle"
                                         alt="User Image">
 
                                     <p>
@@ -102,10 +108,10 @@ try{
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="settings.jsp" class="btn btn-default btn-flat">Settings</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="logout.jsp" class="btn btn-default btn-flat">Logout</a>
                                     </div>
                                 </li>
                             </ul>
@@ -121,7 +127,7 @@ try{
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                        <img src="dist/img/user.svg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p><%=UserName%></p>
@@ -133,7 +139,7 @@ try{
                     <li class="header">MAIN NAVIGATION</li>
 
                     <li class="${param.IndexActive}">
-                        <a href="index.jsp"> <i class="fa fa-th"></i>
+                        <a href="index.jsp"> <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
@@ -143,15 +149,15 @@ try{
                         </a>
                     </li>
                     <li class="${param.EventsActive}">
-                        <a href="events.jsp"> <i class="fa fa-th"></i> <span>Events</span>
+                        <a href="events.jsp"> <i class="fa fa-calendar-o"></i> <span>Events</span>
                         </a>
                     </li>
                     <li class="${param.UsersActive}">
-                        <a href="users.jsp"> <i class="fa fa-th"></i> <span>Users</span>
+                        <a href="users.jsp"> <i class="fa fa-users"></i> <span>Users</span>
                         </a>
                     </li>
                     <li class="${param.BookingsActive}">
-                        <a href="bookings.jsp"> <i class="fa fa-th"></i> <span>Bookings</span>
+                        <a href="bookings.jsp"> <i class="fa fa-credit-card"></i> <span>Bookings</span>
                             <%
 					if(BookingCount > 0){ %>
                             <span class="pull-right-container"> <small
@@ -161,7 +167,7 @@ try{
                         </a>
                     </li>
                     <li class="${param.ContactActive}">
-                        <a href="contactus.jsp"> <i class="fa fa-th"></i> <span>Contact Us</span>
+                        <a href="contactus.jsp"> <i class="fa fa-phone"></i> <span>Contact Us</span>
                             <%
 					if(ContactCount > 0){ %>
                             <span class="pull-right-container"> <small

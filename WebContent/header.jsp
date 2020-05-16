@@ -1,11 +1,19 @@
+<%@page import="com.eventmanagement.dbutil.AccountUtil"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ page import="com.eventmanagement.*" %>
+<%
+String Name = null;
+if(session.getAttribute("UserID") != null){
+	AccountUtil accountUtil = new AccountUtil();
+	Name = accountUtil.GetUserByID((int) session.getAttribute("UserID")).getName();
+}
+%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title><%= Environment._SoftwareName %></title>
+    <title><%= Environment._SoftwareName %> | ${param.Title}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <!-- Google Fonts -->
@@ -52,9 +60,25 @@
                         <nav class="site-navigation position-relative text-right" role="navigation">
 
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                                <li class="active"><a href="index.jsp" class="nav-link">Home</a></li>
-                                <li><a href="events.jsp" class="nav-link">Events</a></li>
-                                <li><a href="contact.jsp" class="nav-link">Contact</a></li>
+                                <li class="${param.IndexActive}"><a href="index.jsp" class="nav-link">Home</a></li>
+                                <li class="${param.EventsActive}"><a href="events.jsp" class="nav-link">Events</a></li>
+                                <li class="${param.ContactActive}"><a href="contact.jsp" class="nav-link">Contact</a></li>
+                                <%
+			                        if(session.getAttribute("UserID") == null){ %>
+                                <li class="${param.LoginActive}"><a href="login.jsp" class="nav-link">Login</a></li>
+                                <li class="${param.RegisterActive}"><a href="register.jsp" class="nav-link">Register</a></li>
+                                <% } else { %>
+                                <li class="has-children ${param.BookingsActive} ${param.SettingsActive}">
+                                    <a href="blog.html" class="nav-link">Welcome <%= Name %></a>
+                                    <ul class="dropdown">
+                                        <li class=""><a href="mybookings.jsp" class="nav-link ${param.BookingsActive}">My Bookings</a></li>
+                                        <li class=""><a href="settings.jsp" class="nav-link ${param.SettingsActive}">Settings</a></li>
+                                        <li class=""><a href="logout.jsp" class="nav-link">Logout</a></li>
+                                    </ul>
+                                </li>
+                                <% } %>
+
+
                             </ul>
                         </nav>
                     </div>

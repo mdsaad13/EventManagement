@@ -6,7 +6,18 @@ import java.sql.Statement;
 
 import com.eventmanagement.config;
 
+/**
+ * Contains general/common database queries
+ */
 public class GeneralUtil extends config {
+
+	/**
+	 * Counts the number of rows of table
+	 * 
+	 * @param TableName
+	 * @return Count
+	 * @throws SQLException
+	 */
 	public int CountTable(String TableName) throws SQLException {
 		int count = 0;
 		Connect();
@@ -20,6 +31,14 @@ public class GeneralUtil extends config {
 		return count;
 	}
 
+	/**
+	 * Counts the number of rows of table by taking arguments or where clause
+	 * 
+	 * @param TableName
+	 * @param Arguments (Eg: id = 1)
+	 * @return Count
+	 * @throws SQLException
+	 */
 	public int CountByArgs(String TableName, String Args) throws SQLException {
 		int count = 0;
 		Connect();

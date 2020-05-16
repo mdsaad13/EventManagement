@@ -1,5 +1,8 @@
 <%@ page import="com.eventmanagement.*" %>
-<jsp:include page="header.jsp" />
+<jsp:include page="header.jsp">
+  <jsp:param name="Title" value="Contact Us" />
+  <jsp:param name="ContactActive" value="active" />
+</jsp:include>
 <main id="main">
     <div class="hero-section inner-page">
         <div class="wave">

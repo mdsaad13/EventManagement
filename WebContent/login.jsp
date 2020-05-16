@@ -1,4 +1,13 @@
-<jsp:include page="header.jsp" />
+<%
+if(session.getAttribute("UserID") != null){
+	response.sendRedirect("mybookings.jsp");
+	return;
+}
+%>
+<jsp:include page="header.jsp">
+  <jsp:param name="Title" value="Login" />
+  <jsp:param name="LoginActive" value="active" />
+</jsp:include>
 <% 
 String Email = (String) request.getAttribute("Email");
 %>

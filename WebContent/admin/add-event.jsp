@@ -64,7 +64,7 @@ ArrayList<Categories> AllCats = adminUtil.AllCategories();
               <div class="form-group">
                 <label>Visibility</label>
                 <select class="form-control" name="event_visibility">
-                  <option value="2">Hide on home page</option>
+                  <option value="2" selected>Hide on home page</option>
                   <option value="1">Show on home page</option>
                 </select>
               </div>

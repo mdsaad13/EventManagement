@@ -49,20 +49,19 @@ Message = request.getParameter("message");
       <h4><i class="icon fa fa-check"></i> Alert!</h4>
       Event add failed!
     </div>
-    <% } else if(Message.equals("UpdateSuccess")){ %>
+    <% } else if(Message.equals("DeleteSuccess")){ %>
     <div class="alert alert-success alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
       <h4><i class="icon fa fa-check"></i> Alert!</h4>
-      Event updated successfully!
+      Event deleted successfully!
     </div>
-    <% } else if(Message.equals("UpdateFailed")){ %>
+    <% } else if(Message.equals("DeleteFailed")){ %>
     <div class="alert alert-danger alert-dismissible">
       <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
       <h4><i class="icon fa fa-check"></i> Alert!</h4>
-      Event update failed!
+      Event delete failed!
     </div>
-    <% }
-  %>
+    <% } %>
     <div class="">
       <!-- Small boxes (Stat box) -->
       <div class="row">
